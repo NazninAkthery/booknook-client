@@ -2,7 +2,10 @@ import { betterAuth } from "better-auth";
 import { mongodbAdapter } from "@better-auth/mongo-adapter";
 import { MongoClient } from "mongodb";
 
-const uri = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/booknook";
+const uri =
+  process.env.MONGODB_URI ||
+  process.env.MONGO_DB_MONGODB_URI ||
+  "mongodb://127.0.0.1:27017/booknook";
 const client = new MongoClient(uri);
 const db = client.db("booknook");
 
